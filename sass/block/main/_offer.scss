@@ -1,0 +1,131 @@
+.offer__title {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.offer__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.offer__card {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  background: var(--main-primary-muted, #FCD5BA);
+  box-shadow: 0px 8px 16px 0px rgba(202, 147, 96, 0.50);
+  padding: 8px 20px 8px 50px;
+}
+
+.offer__card:nth-child(2) {
+  background-color: #E3FDDC;
+}
+
+.offer__card-title {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.offer__card-description {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.offer__image {
+  margin-left: 20px;
+}
+
+.offer__images {
+  margin-left: 90px;
+}
+
+.offer__card-imgs {
+  display: none;
+}
+
+@media only screen and (max-width: 1230px) {
+  .offer__title {
+    text-align: center;
+  }
+
+  .offer__content {
+    justify-content: center;
+  }
+
+  .offer__card:nth-child(2) {
+    margin-top: 20px;
+    padding: 8px 87px 8px 50px;
+  }
+}
+
+@media only screen and (max-width: 621px) {
+  .offer__title {
+    text-align: center;
+  }
+
+  .offer__card {
+    padding: 8px 0px 8px 50px;
+  }
+
+  .offer__card-img {
+    display: none;
+  }
+
+  .offer__card-imgs {
+    display: block;
+  }
+
+  .offer__images {
+    margin-left: 40px;
+  }
+
+  .offer__card:nth-child(2) {
+    padding: 4px 20px 0 25px;
+  }
+}
+
+@media only screen and (max-width: 488px) {
+  .offer__card-title {
+    font-size: 18px;
+  }
+
+  .offer__card-description {
+    font-size: 14px;
+  }
+
+  .offer__card {
+    padding: 8px 0px 8px 12px;
+  }
+
+  .offer__card:nth-child(2) {
+    padding: 4px 7px 0 6px;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .offer__card-picture {
+    display: none;
+  }
+
+  .offer__card-imgs {
+
+    display: none;
+  }
+
+  .offer__card:nth-child(2) {
+    padding: 4px 21px 0 6px;
+  }
+}
