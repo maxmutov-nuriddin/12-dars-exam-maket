@@ -1546,9 +1546,135 @@ ins {
   margin-left: 80px;
 }
 
+.karta__box {
+  margin: 30px 0 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.karta__box-text {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  vertical-align: middle;
+}
+
+.karta__box-text::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("../../../imgs/svg/home.svg");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  margin: 0 10px 0 0;
+}
+
+.karta__box-link {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-decoration-line: underline;
+  vertical-align: middle;
+}
+
+.karta__box-link::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url("../../../imgs/svg/phone.svg");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  margin: 0 10px 0 0;
+}
+
 @media only screen and (max-width: 649px) {
   .work__items {
     margin: 20px 0;
+  }
+}
+.jobs {
+  margin: 50px 0;
+}
+
+.jobs__title {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.jobs__item {
+  padding: 32px;
+  border-radius: 4px;
+  background-color: var(--main-surface, #FFF);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.job__box {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  gap: 40px;
+}
+
+.jobs__item-title {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.jobs__item-requirements {
+  margin-top: 25px;
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.jobs__item-requirements-description {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.jobs__item-contact-info {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-decoration-line: underline;
+}
+
+@media only screen and (max-width: 1125px) {
+  .job__box {
+    grid-template-columns: auto auto;
+  }
+}
+@media only screen and (max-width: 666px) {
+  .job__box {
+    grid-template-columns: auto;
   }
 }
 .footer {
