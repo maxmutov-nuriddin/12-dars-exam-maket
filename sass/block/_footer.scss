@@ -62,6 +62,7 @@
   font-weight: 400;
   line-height: 150%;
   vertical-align: middle;
+  margin-left: 20px;
 }
 
 .footer__phone::before {
@@ -171,6 +172,11 @@
   vertical-align: middle;
 }
 
+.footer__box{
+  display: flex;
+  flex-direction: row;
+}
+
 @media only screen and (max-width: 1090px) {
   .footer__sublist {
     flex-wrap: wrap;
@@ -211,5 +217,11 @@
 
   .footer__top {
     margin-bottom: 25px;
+  }
+
+  .footer__box{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 }

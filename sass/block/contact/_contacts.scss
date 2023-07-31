@@ -1,0 +1,46 @@
+.work__title {
+  margin: 20px 0;
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.work__subtitle,
+.work__subtitles {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+
+
+.work__phone-link {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  text-decoration-line: underline;
+}
+
+.work__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.work__items {
+  margin-left: 80px;
+}
+
+@media only screen and (max-width: 649px) {
+  .work__items {
+    margin: 20px 0;
+  }
+}

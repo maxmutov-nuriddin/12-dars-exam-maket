@@ -1,0 +1,39 @@
+.works {
+  margin: 50px 0;
+}
+
+.works__subtitle {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  vertical-align: middle;
+}
+
+.works__title {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.works__subtitle::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("../../imgs/svg/check.svg");
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.works__box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
