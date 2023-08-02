@@ -1677,6 +1677,220 @@ ins {
     grid-template-columns: auto;
   }
 }
+.basked__heading {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.basked__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.basked__list-item {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  margin: 0 20px;
+  vertical-align: middle;
+}
+
+.basked__list-item_share::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url("../../../imgs/svg/share.svg");
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: center;
+  vertical-align: middle;
+  margin-bottom: 1.5px;
+  margin-right: 8px;
+}
+
+.basked__list-item_favorite::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url("../../../imgs/svg/like.svg");
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: center;
+  vertical-align: middle;
+  margin-bottom: 1.5px;
+  margin-right: 8px;
+}
+
+.basked__images {
+  display: flex;
+  flex-direction: row;
+}
+
+.basked__image-small {
+  display: flex;
+  flex-direction: column;
+}
+
+.basked__content {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.basked__info {
+  width: 30%;
+}
+
+.basked__prices {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.basked__price-value {
+  color: var(--grayscale-hardest, #606060);
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.basked__price-label {
+  color: var(--grayscale-light, #BFBFBF);
+  font-family: Rubik;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.basked__price-values {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.basked__button {
+  text-align: center;
+}
+
+.basked__button-link {
+  color: var(--main-on-primary, #FFF);
+  text-align: center;
+  font-family: Rubik;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  border-radius: 4px;
+  background: var(--main-primary, #F63);
+  padding: 16px 70px;
+}
+
+.basked__button-link:active {
+  color: #F63;
+  background-color: #FFF;
+  border: 1px solid var(--main-primary, );
+}
+
+.basked__brand {
+  margin-top: 30px;
+}
+
+.basked__image-large {
+  width: 100%;
+}
+
+.basked__box {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--grayscale-lightest, #F3F2F1);
+}
+
+.basked__box:nth-child(2) {
+  background-color: transparent;
+}
+
+.basked__brand-label {
+  color: var(--main-on-surface, #414141);
+  font-family: Rubik;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.basked__brand-name {
+  margin-left: 175px;
+  color: var(--main-on-surface, #414141);
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.basked__brand-names {
+  margin-left: 72px;
+  color: var(--main-on-surface, #414141);
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.basked__brand-nams {
+  margin-left: 156px;
+  color: var(--main-on-surface, #414141);
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+@media only screen and (max-width: 932px) {
+  .basked__info {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .basked__images {
+    flex-direction: column;
+  }
+  .basked__images-small {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+@media only screen and (max-width: 432px) {
+  .basked__brand-name {
+    margin-left: 62px;
+  }
+  .basked__brand-names {
+    margin-left: 72px;
+  }
+  .basked__brand-nams {
+    margin-left: 165px;
+  }
+}
 .footer {
   padding: 25px 0;
   background-image: url("../../imgs/png/bg-footer.svg");
