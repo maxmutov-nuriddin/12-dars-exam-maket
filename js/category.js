@@ -45,7 +45,7 @@ function getProductCard(product) {
 
 
   const productBtn = document.createElement("a");
-  productBtn.href = '#'
+  productBtn.href = '../basket.html'
   productBtn.className = 'promotion__btn'
   productBtn.innerHTML = "В корзину";
 
