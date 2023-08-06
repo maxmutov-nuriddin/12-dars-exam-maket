@@ -1,7 +1,9 @@
 const productsRow = document.querySelector(".promotion__product");
-console.log(productsRow);
+const searchInput = document.querySelector(".header__box-input");
 
-function getProductCard(product) {
+let search = "";
+
+function getAllProductsCard(product) {
   const productCard = document.createElement("div");
   productCard.className = "promotion__box";
 
@@ -21,7 +23,8 @@ function getProductCard(product) {
   const productCarS = document.createElement("div");
   productCarS.className = 'promotion__prices'
 
-  const productTitle = document.createElement("h3");
+  const productTitle = document.createElement("a");
+  productTitle.href = '../catalogs.html'
   productTitle.className = 'promotion__titles'
   const productTitleText = document.createTextNode(product.name);
 
@@ -30,7 +33,7 @@ function getProductCard(product) {
   const productPrice = document.createElement("p");
   productPrice.className = 'promotion__price'
   productPrice.innerHTML = `<ins> ${product.price} </ins>`;
-  
+
   const productPriceS = document.createElement("p");
   productPriceS.className = 'promotion__price'
   productPriceS.innerHTML = `<ins> 44.50 </ins>`;
@@ -59,7 +62,29 @@ function getProductCard(product) {
   return productCard;
 }
 
-products.map((product) => {
-  let card = getProductCard(product);
-  productsRow.append(card);
+function getProducts() {
+  let results = products.filter(
+    (pr) =>
+      pr.name.toLowerCase().includes(search)
+  );
+
+
+  productsRow.innerHTML = "";
+
+  if (results.length !== 0) {
+    results.map((pr) => {
+      productsRow.insertAdjacentHTML("beforeend", getAllProductsCard(pr).outerHTML);
+    });
+  } else {
+    productsRow.innerHTML = `<div>
+      No products
+    </div>`;
+  }
+}
+
+getProducts();
+
+searchInput.addEventListener("keyup", function () {
+  search = this.value.trim().toLowerCase();
+  getProducts();
 });
