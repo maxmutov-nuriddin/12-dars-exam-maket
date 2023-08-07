@@ -596,6 +596,12 @@ body {
   display: none;
 }
 
+.drobdown__list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 200px;
+}
+
 .drobdown__items {
   margin-top: 20px;
 }

@@ -1,5 +1,6 @@
 const productsRow = document.querySelectorAll(".promotion__product");
 const offerBox = document.querySelector(".offer__content");
+const article = document.querySelector(".article__box");
 
 const specialOffer = [
   {
@@ -15,11 +16,6 @@ const specialOffer = [
   }
 ]
 
-specialOffer.map((special) => {
-  console.log(special);
-})
-
-
 function offer(card) {
   const offerBoxs = document.createElement('div');
   offerBoxs.className = 'offer__card';
@@ -29,10 +25,10 @@ function offer(card) {
   offerTitle.className = 'offer__card-title';
   offerTitle.innerHTML = `${card.title}`;
 
-  
+
   const offerContent = document.createElement('div');
   offerContent.className = 'offer__text';
-  
+
   const offerCard = document.createElement('div');
   offerCard.className = 'offer__card';
 
@@ -42,19 +38,19 @@ function offer(card) {
   const offerCardDescription = document.createElement('p');
   offerCardDescription.className = 'offer__card-description';
   offerCardDescription.innerHTML = `${card.description}`
-  
+
   const offerImage = document.createElement('div');
   offerImage.className = 'offer__image';
-  
+
   const offerCardImage = document.createElement('img');
   offerCardImage.className = 'offer__card-img';
   offerCardImage.src = `${card.img}`
-  
+
   offerBoxs.prepend(offerImage);
-  offerBoxs.prepend(offerContent);  
+  offerBoxs.prepend(offerContent);
   offerContent.prepend(offerCardDescription);
   offerContent.prepend(offerTitle)
-  offerImage.prepend(offerCardImage)  
+  offerImage.prepend(offerCardImage)
 
   return offerBoxs;
 }
@@ -89,7 +85,7 @@ function getProductCard(product) {
   productCarS.className = 'promotion__prices'
 
   const productTitle = document.createElement("a");
-  productTitle.href = '../catalogs.html'
+  productTitle.href = `catalogs.html?category=${product.category}`
   productTitle.className = 'promotion__titles'
   const productTitleText = document.createTextNode(product.name);
 
@@ -129,10 +125,87 @@ function getProductCard(product) {
 
 products.slice(1, 5).map((product) => {
   let card = getProductCard(product);
-  let cardCopy1 = card.cloneNode(true);
-  let cardCopy2 = card.cloneNode(true);
-  let cardCopy3 = card.cloneNode(true);
-  productsRow[0].append(cardCopy1);
-  productsRow[1].append(cardCopy2);
-  productsRow[2].append(cardCopy3);
+  productsRow[0].append(card);
+});
+products.slice(7, 11).map((product) => {
+  let card = getProductCard(product);
+  productsRow[1].append(card);
+});
+products.slice(13, 17).map((product) => {
+  let card = getProductCard(product);
+  productsRow[2].append(card);
+});
+
+
+const articles = [
+  {
+    img: '../imgs/png/persson-arm.png',
+    data: '05.03.2021',
+    title: 'Режим использования масок и<br> перчаток на территории магазинов',
+    description: 'Подробная информация о режимах<br> использования масок и перчаток на<br> территории магазинов "ЛЕНТА". Информация<br> обновляется каждый будний день.',
+    link: 'Подробнее'
+  },
+  {
+    img: '../imgs/png/flawers.png',
+    data: '05.03.2021',
+    title: 'Режим использования масок и<br> перчаток на территории магазинов',
+    description: '8 Марта – это не просто Международный<br> женский день, это ещё день тюльпанов,<br> приятных сюрпризов и праздничных тёплых<br> пожеланий.',
+    link: 'Подробнее'
+  },
+  {
+    img: '../imgs/png/fruits.png',
+    data: '05.03.2021',
+    title: 'Режим использования масок и<br> перчаток на территории магазинов',
+    description: 'Голосуйте за любимые категории, выбирайте<br> категорию-победителя в мобильном<br> приложении и получайте кешбэк 10%<br> баллами в апреле!',
+    link: 'Подробнее'
+  }
+]
+
+articles.map((data) => {
+  const articleItem = document.createElement('div');
+  articleItem.className = 'article-item';
+
+  const articleImage = document.createElement('div');
+  articleImage.className = 'article__image';
+
+  const articleContent = document.createElement('div');
+  articleContent.className = 'article__content';
+
+  const articleImg = document.createElement('img');
+  articleImg.className = 'article__img';
+  articleImg.src = data.img;
+
+  articleImage.prepend(articleImg);
+
+  const articleDate = document.createElement('p');
+  articleDate.className = 'article__date';
+  articleDate.innerHTML = data.data;
+
+  const articleHeading = document.createElement('h3');
+  articleHeading.className = 'article__heading';
+
+  const articleHeadings = document.createElement('a');
+  articleHeadings.className = 'article__heading';
+  articleHeadings.href = '../statya.html';
+  articleHeadings.innerHTML = data.title;
+
+  const articleDescription = document.createElement('p');
+  articleDescription.className = 'article__description';
+  articleDescription.innerHTML = data.description;
+
+  const articleMore = document.createElement('a');
+  articleMore.className = 'article__more';
+  articleMore.href = '../index.html';
+  articleMore.innerHTML = data.link;
+
+  articleItem.appendChild(articleImage);
+  articleItem.appendChild(articleContent);
+  articleImage.appendChild(articleImg);
+  articleContent.appendChild(articleDate);
+  articleContent.appendChild(articleHeading);
+  articleHeading.appendChild(articleHeadings);
+  articleContent.appendChild(articleDescription);
+  articleContent.appendChild(articleMore);
+
+  article.appendChild(articleItem);
 });

@@ -199,8 +199,15 @@
   justify-content: space-evenly;
 }
 
-.drobdown_none{
+.drobdown_none {
   display: none;
+}
+
+
+.drobdown__list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 200px;
 }
 
 .drobdown__items {
@@ -208,7 +215,7 @@
 }
 
 .drobdown__items-link {
-  color: var(--main-on-surface, #414141) ;
+  color: var(--main-on-surface, #414141);
   font-family: Rubik;
   font-size: 16px;
   font-style: normal;

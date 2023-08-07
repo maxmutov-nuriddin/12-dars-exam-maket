@@ -62,8 +62,14 @@ function getCatalogsCard(product) {
   return productCard;
 }
 
+const category = new URLSearchParams(location.search).get("category");
+
+let categoryProducts = products.filter((pr) => pr.category == category);
+
+console.log(categoryProducts);
+
 function getProducts() {
-  let results = products.filter(
+  let results = categoryProducts.filter(
     (pr) =>
       pr.name.toLowerCase().includes(search)
   );
@@ -88,3 +94,6 @@ searchInput.addEventListener("keyup", function () {
   search = this.value.trim().toLowerCase();
   getProducts();
 });
+
+
+

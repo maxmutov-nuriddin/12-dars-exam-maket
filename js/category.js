@@ -88,3 +88,4 @@ searchInput.addEventListener("keyup", function () {
   search = this.value.trim().toLowerCase();
   getProducts();
 });
+
