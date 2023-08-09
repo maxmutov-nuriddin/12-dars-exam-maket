@@ -1,6 +1,10 @@
 const drobdown = document.querySelector('.drobdown_none')
 const btn = document.querySelector('.header__catalog-link')
 const drobdownBox = document.querySelector('.drobdown__list')
+const cartTotal = document.querySelector('.count__cards')
+
+
+
 
 function drobdownPage(params) {
   const drobdownItems = document.createElement('li')
@@ -38,3 +42,12 @@ btn.addEventListener("click", function (e) {
   e.preventDefault();
   drobdown.classList.toggle("drobdown_none")
 })
+
+
+let cartJson = localStorage.getItem("cart");
+
+let cart = JSON.parse(cartJson) || [];
+
+function getCartTotal() {
+  cartTotal.textContent = cart.length;
+}
