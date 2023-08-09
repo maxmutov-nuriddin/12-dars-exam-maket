@@ -5,13 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/main.css">
-  <title>Главная</title>
+  <title>корзина</title>
 </head>
 
 <body>
   <header class="header">
     <div class="drobdown_none drobdown">
-      <ul class="drobdown__list"> 
+      <ul class="drobdown__list">
       </ul>
     </div>
     <nav class="header__nav">
@@ -27,98 +27,33 @@
       </div>
       <a class="header__favorites-link" href="./like.html">избраное</a>
       <a class="header__product-link" href="./allproduct.html">продукт</a>
-      <a class="header__cart-link" href="./cart.html">корзина</a>
+      <a class="header__cart-link" href="./basket.html">корзина</a>
       <a class="header__profile-link" href="#">Алексей</a>
       <a class="header__profile-img" href="#"><img src="./imgs/png/header-avatar.png" alt="" avatar></a>
       <button class="header__profile-dropdown-btn"><img src="./imgs/svg/chevron-down.svg" alt="chevron-down"></button>
     </nav>
   </header>
   <main>
-    <section class="hero">
+    <section class="carts">
       <div class="container">
-        <div class="hero__content">
-          <h1 class="visually-hidden"></h1>
-          <img class="hero__image" src="./imgs/png/hero-eat.png" alt="hero-bg">
-          <h2 class="hero__title">Доставка бесплатно от 1000 ₽</h2>
-        </div>
-      </div>
-    </section>
-    <section class="promotion">
-      <div class="container">
-        <div class="promotion__header">
-          <h2 class="promotion__title">
-            Акции
-          </h2>
-          <a class="promotion__link" href="./allproduct.html">Все продукты</a>
-        </div>
-        <div class="promotion__product">
-        </div>
-      </div>
-    </section>
-    <section class="news">
-      <div class="container">
-        <div class="promotion__header">
-          <h2 class="promotion__title ">
-            Новинки
-          </h2>
-          <a class="promotion__link" href="./allproduct.html">Все продукты</a>
-        </div>
-        <div id="news" class="promotion__product">
-        </div>
-      </div>
-    </section>
-    <section class="news">
-      <div class="container">
-        <div class="promotion__header">
-          <h2 class="promotion__title ">
-            Покупали раньше
-          </h2>
-          <a class="promotion__link" href="./allproduct.html">Все продукты</a>
-        </div>
-        <div class="promotion__product">
-        </div>
-      </div>
-    </section>
-    <section class="offer">
-      <div class="container">
-        <div class="offer__box">
-          <h2 class="offer__title">
-            Специальные предложения
-          </h2>
-          <div class="offer__content">
-
+        <div>
+          <div>
+            <a class="catalog__breadcrumb-link" href="./index.html">
+              Главная
+            </a>
+            <span class="catalog__breadcrumb-separator">
+              <img class="catalog__breadcrumb-icon" src="./imgs/./svg/right-btn.svg" alt="right">
+            </span>
+            <a class="catalog__breadcrumb-links" href="./cart.html">
+              Корзина
+            </a>
+          </div>
+          <div>
+            <a href="cart.html">Cart <span class="count__cards">0</span></a>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="karta">
-      <div class="container">
-        <h2 class="karta__title">
-          Наши магазины
-        </h2>
-        <div class="karta__links">
-          <a class="karta__link" href="#">п.Щельяюр</a>
-          <a class="karta__link" href="#">д.Вертеп</a>
-          <a class="karta__link" href="#">с.Краснобор</a>
-          <a class="karta__link" href="#">д.Диюр</a>
-        </div>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26612.55200946158!2d53.372358336711876!3d65.32267337956678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4472340bbf53f20d%3A0x6aaf90d406ef7886!2z0KnQtdC70YzRj9GO0YAsINCg0LXRgdC_LiDQmtC-0LzQuCwg0KDQvtGB0YHQuNGP!5e0!3m2!1sru!2s!4v1690565508302!5m2!1sru!2s"
-          class="karta__map" width="100%" height="354" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </section>
-    <section class="article">
-      <div class="container">
-        <div class="article__header">
-          <h2 class="article__title">
-            Статьи
-          </h2>
-          <a class="article__link" href="#">
-            Все статьи
-          </a>
-        </div>
-        <div class="article__box">
+        <div class="carts__box">
+        
         </div>
       </div>
     </section>
@@ -225,8 +160,8 @@
     </div>
   </footer>
   <script src="./js/products-data.js"></script>
-  <script src="./js/home.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/cart.js"></script>
 </body>
 
 </html>
