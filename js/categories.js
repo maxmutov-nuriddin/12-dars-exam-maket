@@ -4,10 +4,6 @@ const searchInput = document.querySelector(".header__box-input");
 let search = "";
 
 function getCatalogsCard(product) {
-  let check = cart.find((pr) => pr.id === product.id);
-
-
-
   const productCard = document.createElement("div");
   productCard.className = "promotion__box";
 
@@ -32,7 +28,6 @@ function getCatalogsCard(product) {
   productTitle.className = 'promotion__titles'
   const productTitleText = document.createTextNode(product.name);
 
-
   productTitle.appendChild(productTitleText);
 
   const productPrice = document.createElement("p");
@@ -52,12 +47,10 @@ function getCatalogsCard(product) {
   productRatings.className = 'promotion__rating'
 
 
-  const productBtn = document.createElement("button");
-  // productBtn.href = '../basket.html'
+  const productBtn = document.createElement("a");
+  productBtn.href = '../basket.html'
   productBtn.className = 'promotion__btn'
   productBtn.innerHTML = "В корзину";
-  productBtn.addEventListener("click", () => addToCart(product.id));
-
 
   productCardFooter.prepend(productBtn);
   productCardFooter.prepend(productRatings);
@@ -67,26 +60,6 @@ function getCatalogsCard(product) {
   productCard.append(productCardBody, productCardFooter);
 
   return productCard;
-}
-
-function addToCart(id) {
-  let product = products.find((pr) => pr.id === id);
-  let check = cart.find((pr) => pr.id === id);
-
-  if (check) {
-    cart = cart.map((pr) => {
-      if (pr.id === id) {
-        pr.quantity++;
-      }
-      return pr;
-    });
-  } else {
-    product.quantity = 1;
-    cart.push(product);
-  }
-  localStorage.setItem("cart", JSON.stringify(cart));
-  getProducts();
-  getCartTotal();
 }
 
 const category = new URLSearchParams(location.search).get("category");

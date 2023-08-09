@@ -1450,45 +1450,6 @@ ins {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-.cart-card {
-  display: flex;
-  gap: 60px;
-}
-
-.cart__title {
-  color: var(--main-on-surface, #414141);
-  font-family: Rubik;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-}
-
-.cart__box {
-  display: flex;
-  gap: 10px;
-}
-
-.count__cards {
-  padding-top: 50px;
-  font-size: 40px;
-}
-
-.cart-card {
-  margin-bottom: 20px;
-}
-
-.cart-card-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.cart__btn-box {
-  margin-left: 100px;
-}
-
 .about {
   padding: 50px 0;
   background-image: url("../../../imgs/png/about-bg-img.png");

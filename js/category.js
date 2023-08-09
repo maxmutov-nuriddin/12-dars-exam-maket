@@ -1,15 +1,9 @@
 const productsRow = document.querySelector(".promotion__product");
 const searchInput = document.querySelector(".header__box-input");
 
-
 let search = "";
 
-
-function getProductCard(product) {
-  let check = cart.find((pr) => pr.id === product.id);
-
-
-
+function getAllProductsCard(product) {
   const productCard = document.createElement("div");
   productCard.className = "promotion__box";
 
@@ -30,7 +24,7 @@ function getProductCard(product) {
   productCarS.className = 'promotion__prices'
 
   const productTitle = document.createElement("a");
-  productTitle.href = `catalogs.html?category=${product.category}`
+  productTitle.href = '../catalogs.html'
   productTitle.className = 'promotion__titles'
   const productTitleText = document.createTextNode(product.name);
 
@@ -53,12 +47,10 @@ function getProductCard(product) {
   productRatings.className = 'promotion__rating'
 
 
-  const productBtn = document.createElement("button");
+  const productBtn = document.createElement("a");
+  productBtn.href = '../basket.html'
   productBtn.className = 'promotion__btn'
   productBtn.innerHTML = "В корзину";
-
-  productBtn.addEventListener("click", () => addToCart(product.id));
-
 
   productCardFooter.prepend(productBtn);
   productCardFooter.prepend(productRatings);
@@ -68,26 +60,6 @@ function getProductCard(product) {
   productCard.append(productCardBody, productCardFooter);
 
   return productCard;
-}
-
-function addToCart(id) {
-  let product = products.find((pr) => pr.id === id);
-  let check = cart.find((pr) => pr.id === id);
-
-  if (check) {
-    cart = cart.map((pr) => {
-      if (pr.id === id) {
-        pr.quantity++;
-      }
-      return pr;
-    });
-  } else {
-    product.quantity = 1;
-    cart.push(product);
-  }
-  localStorage.setItem("cart", JSON.stringify(cart));
-  getProducts();
-  getCartTotal();
 }
 
 function getProducts() {
@@ -101,7 +73,7 @@ function getProducts() {
 
   if (results.length !== 0) {
     results.map((pr) => {
-      productsRow.insertAdjacentHTML("beforeend", getProductCard(pr).outerHTML);
+      productsRow.insertAdjacentHTML("beforeend", getAllProductsCard(pr).outerHTML);
     });
   } else {
     productsRow.innerHTML = `<div>
