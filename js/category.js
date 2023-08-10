@@ -1,14 +1,15 @@
 const productsRow = document.querySelector(".promotion__product");
 const searchInput = document.querySelector(".header__box-input");
+// const cartTotal = document.querySelector('.count__cards')
 
 
 let search = "";
 
 
-function getProductCard({id, images, name, category, price}) {
-  let check = cart.find((pr) => pr.id === id);
+function getProductCard(product) {
+  let check = cart.find((pr) => pr.id === product.id);
 
-
+  // console.log(check);
 
   const productCard = document.createElement("div");
   productCard.className = "promotion__box";
@@ -17,8 +18,8 @@ function getProductCard({id, images, name, category, price}) {
   productCardBody.className = "product-card-body";
 
   const productImg = document.createElement("img");
-  productImg.src = images[0];
-  productImg.alt = name;
+  productImg.src = product.images[0];
+  productImg.alt = product.name;
   productImg.style = 'width: 100%'
 
   productCardBody.appendChild(productImg);
@@ -30,15 +31,15 @@ function getProductCard({id, images, name, category, price}) {
   productCarS.className = 'promotion__prices'
 
   const productTitle = document.createElement("a");
-  productTitle.href = `catalogs.html?category=${category}`
+  productTitle.href = `catalogs.html?category=${product.category}`
   productTitle.className = 'promotion__titles'
-  const productTitleText = document.createTextNode(name);
+  const productTitleText = document.createTextNode(product.name);
 
   productTitle.appendChild(productTitleText);
 
   const productPrice = document.createElement("p");
   productPrice.className = 'promotion__price'
-  productPrice.innerHTML = `<ins> ${price} </ins>`;
+  productPrice.innerHTML = `<ins> ${product.price} </ins>`;
 
   const productPriceS = document.createElement("p");
   productPriceS.className = 'promotion__price'
@@ -56,15 +57,7 @@ function getProductCard({id, images, name, category, price}) {
   const productBtn = document.createElement("button");
   productBtn.className = 'promotion__btn'
   productBtn.innerHTML = "В корзину";
-  
   productBtn.addEventListener("click", () => addToCart(product.id));
-
-  productBtn.addEventListener("click", () => {
-    productBtn.classList("active-cart");
-    // console.log(productBtn);
-    addToCart(product.id);
-  })
-
 
   productCardFooter.prepend(productBtn);
   productCardFooter.prepend(productRatings);
@@ -78,6 +71,7 @@ function getProductCard({id, images, name, category, price}) {
 
 function addToCart(id) {
   let product = products.find((pr) => pr.id === id);
+
   let check = cart.find((pr) => pr.id === id);
 
   if (check) {

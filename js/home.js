@@ -129,6 +129,8 @@ function getProductCard(product) {
 
 function addToCart(id) {
   let product = products.find((pr) => pr.id === id);
+  console.log(product);
+
   let check = cart.find((pr) => pr.id === id);
 
   if (check) {
@@ -149,7 +151,6 @@ function addToCart(id) {
 
 
 function getProducts() {
-  // Очистить productsRow перед добавлением новых элементов
   productsRow.forEach(row => {
     while (row.firstChild) {
       row.removeChild(row.firstChild);
