@@ -115,13 +115,7 @@ function getProductCard(product) {
   const productBtn = document.createElement("button");
   productBtn.className = 'promotion__btn'
   productBtn.innerHTML = "В корзину";
-
-  productBtn.addEventListener("click", () => {
-    productBtn.classList.add('active-cart')
-
-    addToCart(product.id);
-  })
-
+  productBtn.addEventListener("click", () => addToCart(product.id));
 
   productCardFooter.prepend(productBtn);
   productCardFooter.prepend(productRatings);
