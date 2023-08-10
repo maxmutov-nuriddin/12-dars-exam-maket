@@ -57,7 +57,11 @@ function getProductCard(product) {
   productBtn.className = 'promotion__btn'
   productBtn.innerHTML = "В корзину";
 
-  productBtn.addEventListener("click", () => addToCart(product.id));
+  productBtn.addEventListener("click", () => {
+    productBtn.classList("active-cart");
+    // console.log(productBtn);
+    addToCart(product.id);
+  })
 
 
   productCardFooter.prepend(productBtn);

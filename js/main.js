@@ -49,5 +49,7 @@ let cartJson = localStorage.getItem("cart");
 let cart = JSON.parse(cartJson) || [];
 
 function getCartTotal() {
-  cartTotal.textContent = cart.length;
+  cartTotal.innerHTML = cart.length;
 }
+
+getCartTotal();

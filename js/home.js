@@ -67,7 +67,7 @@ specialOffer.map((cards) => {
 function getProductCard(product) {
   let check = cart.find((pr) => pr.id === product.id);
 
-
+  // console.log(check);
 
   const productCard = document.createElement("div");
   productCard.className = "promotion__box";
@@ -116,7 +116,11 @@ function getProductCard(product) {
   productBtn.className = 'promotion__btn'
   productBtn.innerHTML = "В корзину";
 
-  productBtn.addEventListener("click", () => addToCart(product.id));
+  productBtn.addEventListener("click", () => {
+    productBtn.classList.add('active-cart')
+
+    addToCart(product.id);
+  })
 
 
   productCardFooter.prepend(productBtn);
@@ -150,20 +154,32 @@ function addToCart(id) {
 }
 
 
+function getProducts() {
+  // Очистить productsRow перед добавлением новых элементов
+  productsRow.forEach(row => {
+    while (row.firstChild) {
+      row.removeChild(row.firstChild);
+    }
+  });
 
-products.slice(1, 5).map((product) => {
-  let card = getProductCard(product);
-  productsRow[0].append(card);
-});
-products.slice(7, 11).map((product) => {
-  let card = getProductCard(product);
-  productsRow[1].append(card);
-});
-products.slice(13, 17).map((product) => {
-  let card = getProductCard(product);
-  productsRow[2].append(card);
-});
+  products.slice(1, 5).map((product) => {
+    let card = getProductCard(product);
+    productsRow[0].append(card);
+  });
+  products.slice(7, 11).map((product) => {
+    let card = getProductCard(product);
+    productsRow[1].append(card);
+  });
+  products.slice(13, 17).map((product) => {
+    let card = getProductCard(product);
+    productsRow[2].append(card);
+  });
 
+}
+
+getProducts();
+
+getProducts();
 
 const articles = [
   {
