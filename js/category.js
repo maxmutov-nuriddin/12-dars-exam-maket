@@ -56,8 +56,8 @@ function getProductCard(product) {
   productBtnS.className = 'promotion__btn'
   productBtnS.innerHTML = "В корзину";
   // console.log(productBtnS);
-  productBtnS.addEventListener("click", () => {addToCart(product.id)});
-  
+  productBtnS.addEventListener("click", () => { addToCart(product.id) });
+
 
   productCardFooter.prepend(productBtnS);
   productCardFooter.prepend(productRatings);
@@ -102,7 +102,7 @@ function getProducts() {
 
   if (results.length !== 0) {
     results.map((pr) => {
-      productsRow.insertAdjacentHTML("beforeend", getProductCard(pr).outerHTML);
+      productsRow.append(getProductCard(pr))
     });
   } else {
     productsRow.innerHTML = `<div>
