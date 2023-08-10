@@ -115,6 +115,7 @@ function getProductCard(product) {
   const productBtn = document.createElement("button");
   productBtn.className = 'promotion__btn'
   productBtn.innerHTML = "В корзину";
+  
   productBtn.addEventListener("click", () => addToCart(product.id));
 
   productCardFooter.prepend(productBtn);
@@ -125,11 +126,11 @@ function getProductCard(product) {
   productCard.append(productCardBody, productCardFooter);
 
   return productCard;
-}
 
+
+}
 function addToCart(id) {
   let product = products.find((pr) => pr.id === id);
-  console.log(product);
 
   let check = cart.find((pr) => pr.id === id);
 

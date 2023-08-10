@@ -1,7 +1,5 @@
 const productsRow = document.querySelector(".promotion__product");
 const searchInput = document.querySelector(".header__box-input");
-// const cartTotal = document.querySelector('.count__cards')
-
 
 let search = "";
 
@@ -54,12 +52,14 @@ function getProductCard(product) {
   productRatings.className = 'promotion__rating'
 
 
-  const productBtn = document.createElement("button");
-  productBtn.className = 'promotion__btn'
-  productBtn.innerHTML = "В корзину";
-  productBtn.addEventListener("click", () => addToCart(product.id));
+  const productBtnS = document.createElement("button");
+  productBtnS.className = 'promotion__btn'
+  productBtnS.innerHTML = "В корзину";
+  // console.log(productBtnS);
+  productBtnS.addEventListener("click", () => {addToCart(product.id)});
+  
 
-  productCardFooter.prepend(productBtn);
+  productCardFooter.prepend(productBtnS);
   productCardFooter.prepend(productRatings);
   productCardFooter.prepend(productTitle);
   productCardFooter.prepend(productCarS);
@@ -70,6 +70,7 @@ function getProductCard(product) {
 }
 
 function addToCart(id) {
+  console.log(addToCart);
   let product = products.find((pr) => pr.id === id);
 
   let check = cart.find((pr) => pr.id === id);
