@@ -96,17 +96,16 @@ let categoryProducts = products.filter((pr) => pr.category == category);
 console.log(categoryProducts);
 
 function getProducts() {
-  let results = categoryProducts.filter(
-    (pr) =>
-      pr.name.toLowerCase().includes(search)
-  );
-
+    let results = categoryProducts.filter(
+      (pr) =>
+        pr.name.toLowerCase().includes(search)
+    )
 
   productsRow.innerHTML = "";
 
   if (results.length !== 0) {
     results.map((pr) => {
-      productsRow.insertAdjacentHTML("beforeend", getCatalogsCard(pr).outerHTML);
+      productsRow.append(getCatalogsCard(pr))
     });
   } else {
     productsRow.innerHTML = `<div>
@@ -121,6 +120,5 @@ searchInput.addEventListener("keyup", function () {
   search = this.value.trim().toLowerCase();
   getProducts();
 });
-
 
 

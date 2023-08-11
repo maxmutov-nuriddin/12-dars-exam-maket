@@ -2,6 +2,7 @@ const drobdown = document.querySelector('.drobdown_none')
 const btn = document.querySelector('.header__catalog-link')
 const drobdownBox = document.querySelector('.drobdown__list')
 const cartTotal = document.querySelector('.count__cards')
+const likeTotal = document.querySelector('.count__likes')
 
 
 
@@ -53,3 +54,13 @@ function getCartTotal() {
 }
 
 getCartTotal();
+
+let likeJson = localStorage.getItem("like");
+
+let like = JSON.parse(likeJson) || [];
+
+function getLikeTotal() {
+  likeTotal.innerHTML = like.length;
+}
+
+getLikeTotal();

@@ -67,7 +67,6 @@ specialOffer.map((cards) => {
 function getProductCard(product) {
   let check = cart.find((pr) => pr.id === product.id);
 
-  // console.log(check);
 
   const productCard = document.createElement("div");
   productCard.className = "promotion__box";
@@ -80,6 +79,16 @@ function getProductCard(product) {
   productImg.alt = product.name;
   productImg.style = 'width: 100%'
 
+  const productLikeImg = document.createElement("img");
+  productLikeImg.src = './imgs/svg/like.svg';
+  productLikeImg.className = 'promotion__like'
+
+  productLikeImg.addEventListener("click", (e) => {
+    e.preventDefault();
+    addToCartS(product.id)
+  });
+  
+  productCardBody.appendChild(productLikeImg);
   productCardBody.appendChild(productImg);
 
   const productCardFooter = document.createElement("div");
@@ -116,7 +125,11 @@ function getProductCard(product) {
   productBtn.className = 'promotion__btn'
   productBtn.innerHTML = "В корзину";
   
-  productBtn.addEventListener("click", () => addToCart(product.id));
+  productBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    productBtn.classList.add("product__active")
+    addToCart(product.id)
+  });
 
   productCardFooter.prepend(productBtn);
   productCardFooter.prepend(productRatings);
@@ -249,3 +262,24 @@ articles.map((data) => {
 
   article.appendChild(articleItem);
 });
+
+function addToCartS(id) {
+  let product = products.find((pr) => pr.id === id);
+
+  let check = like.find((pr) => pr.id === id);
+
+  if (check) {
+    like = like.map((pr) => {
+      if (pr.id === id) {
+        pr.quantity++;
+      }
+      return pr;
+    });
+  } else {
+    product.quantity = 1;
+    like.push(product);
+  }
+  localStorage.setItem("like", JSON.stringify(like));
+  getProducts();
+  getLikeTotal();
+}

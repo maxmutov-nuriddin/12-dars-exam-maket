@@ -515,6 +515,7 @@ body {
 }
 
 .header__cart-link {
+  position: relative;
   font-family: Rubik;
   text-align: center;
   font-size: 12px;
@@ -534,7 +535,7 @@ body {
   margin: 0 auto;
   width: 24px;
   height: 24px;
-  background-image: url("../../imgs/svg/magazin.svg");
+  background-image: url("../../imgs/svg/shopping-cart.svg");
   background-repeat: no-repeat;
 }
 
@@ -802,6 +803,7 @@ body {
   top: 10px;
   right: 10px;
   position: absolute;
+  z-index: 9999;
 }
 
 .promotion__sale {
@@ -1068,6 +1070,10 @@ ins {
 
 .article {
   margin-bottom: 80px;
+}
+
+.product__active {
+  background-color: #f58754 !important;
 }
 
 .article__header {
@@ -1471,7 +1477,7 @@ ins {
 
 .count__cards {
   padding-top: 50px;
-  font-size: 20px;
+  font-size: 2;
 }
 
 .cart-card {
