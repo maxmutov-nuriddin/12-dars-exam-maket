@@ -1,6 +1,8 @@
 const productsRow = document.querySelectorAll(".promotion__product");
 const bigBox = document.querySelector('.promotion__boxs');
 const boxTitle = document.querySelector('.basked__heading')
+const indicators = document.querySelector(".indicators");
+const showImg = document.querySelector(".show img");
 
 
 const category = new URLSearchParams(location.search).get("category");
@@ -19,7 +21,7 @@ function productDescription(product) {
   basketImages.classList.add('basked__images');
 
   const basketImagesSmall = document.createElement('div');
-  basketImagesSmall.classList.add('basked__image-small');
+  basketImagesSmall.classList.add('basked__image-small', 'indicators');
 
   for (let index = 0; index < 3; index++) {
     const imageSmall = document.createElement('img');
@@ -32,7 +34,7 @@ function productDescription(product) {
   basketImages.appendChild(basketImagesSmall);
 
   const basketImagesLarge = document.createElement('div');
-  basketImagesLarge.classList.add('basked__image-large');
+  basketImagesLarge.classList.add('basked__image-large', 'show');
 
   const imageLarge = document.createElement('img');
   imageLarge.classList.add('basked__image-large');
@@ -114,12 +116,9 @@ categoryProducts.map((product) => {
   boxTitle.innerHTML = product.description
 });
 
-
-
-
-
-
-
+indicators.addEventListener("click", (e) => {
+  e.target.src && (showImg.src = e.target.src);
+});
 
 
 function addToCart(id) {
