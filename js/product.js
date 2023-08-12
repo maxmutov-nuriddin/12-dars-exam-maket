@@ -1,8 +1,6 @@
 const productsRow = document.querySelectorAll(".promotion__product");
 const bigBox = document.querySelector('.promotion__boxs');
 const boxTitle = document.querySelector('.basked__heading')
-const indicators = document.querySelector(".indicators");
-const showImg = document.querySelector(".show img");
 
 
 const category = new URLSearchParams(location.search).get("category");
@@ -114,10 +112,6 @@ categoryProducts.map((product) => {
   let cards = productDescription(product);
   bigBox.append(cards);
   boxTitle.innerHTML = product.description
-});
-
-indicators.addEventListener("click", (e) => {
-  e.target.src && (showImg.src = e.target.src);
 });
 
 
@@ -296,3 +290,10 @@ getProducts();
 
 
 
+const indicators = document.querySelector(".indicators");
+const showImg = document.querySelector(".show img");
+
+
+indicators.addEventListener("click", (e) => {
+  e.target.src && (showImg.src = e.target.src);
+});
