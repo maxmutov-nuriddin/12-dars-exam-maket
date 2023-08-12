@@ -7,7 +7,6 @@ const category = new URLSearchParams(location.search).get("category");
 
 let categoryProducts = products.filter((pr) => pr.id == category);
 
-// console.log(categoryProducts);
 
 
 
