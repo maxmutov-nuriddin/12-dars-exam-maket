@@ -1,7 +1,15 @@
 const productsRow = document.querySelector(".promotion__product");
 const searchInput = document.querySelector(".header__box-input");
+const pagination = document.querySelector(".pagination");
+const counterButtonMinus = document.getElementById('counterButtonMinus');
+const counterButtonPlus = document.getElementById('counterButtonPlus');
+
 
 let search = "";
+
+let pages;
+
+let activePage = 1;
 
 
 function getProductCard(product) {
@@ -11,6 +19,10 @@ function getProductCard(product) {
 
   const productCard = document.createElement("div");
   productCard.className = "promotion__box";
+
+  const productCardLink = document.createElement("a");
+  productCardLink.className = "";
+  productCardLink.href = `basket.html?category=${product.id}`
 
   const productCardBody = document.createElement("div");
   productCardBody.className = "product-card-body";
@@ -23,12 +35,13 @@ function getProductCard(product) {
   const productLikeImg = document.createElement("img");
   productLikeImg.src = './imgs/svg/like.svg';
   productLikeImg.className = 'promotion__like'
-  
-    productLikeImg.addEventListener("click", (e) => {
+
+  productLikeImg.addEventListener("click", (e) => {
     e.preventDefault();
     addToCartS(product.id)
   });
 
+  productCardLink.appendChild(productCardBody)
   productCardBody.appendChild(productLikeImg);
   productCardBody.appendChild(productImg);
 
@@ -62,18 +75,22 @@ function getProductCard(product) {
   productRatings.className = 'promotion__rating'
 
 
-  const productBtnS = document.createElement("button");
-  productBtnS.className = 'promotion__btn'
-  productBtnS.innerHTML = "В корзину";
-  productBtnS.addEventListener("click", () => {productBtnS.classList.add("product__active"), addToCart(product.id)});
+  const productBtn = document.createElement("button");
+  productBtn.className = 'promotion__btn'
+  productBtn.innerHTML = "В корзину";
 
+  productBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    productBtn.classList.add("product__active")
+    addToCart(product.id)
+  });
 
-  productCardFooter.prepend(productBtnS);
+  productCardFooter.prepend(productBtn);
   productCardFooter.prepend(productRatings);
   productCardFooter.prepend(productTitle);
   productCardFooter.prepend(productCarS);
 
-  productCard.append(productCardBody, productCardFooter);
+  productCard.append(productCardLink, productCardFooter);
 
   return productCard;
 }
@@ -106,11 +123,22 @@ function getProducts() {
       pr.name.toLowerCase().includes(search)
   );
 
+  pages = Math.ceil(results.length / 10);
+
+  pagination.innerHTML = "";
+
+  for (let i = 1; i <= pages; i++) {
+    pagination.innerHTML += `<button onClick="getPage(${i})" class="page-item ${i === activePage ? "page-active" : ""
+      }">${i}</button>`;
+  }
 
   productsRow.innerHTML = "";
 
   if (results.length !== 0) {
-    results.map((pr) => {
+    let first = (activePage - 1) * 10;
+    let last = activePage * 10;
+    let lastResults = results.slice(first, last);
+    lastResults.map((pr) => {
       productsRow.append(getProductCard(pr))
     });
   } else {
@@ -120,10 +148,36 @@ function getProducts() {
   }
 }
 
+counterButtonMinus.addEventListener('click', () => {
+  activePage--;
+  if (activePage < 1) {
+    activePage = 1;
+  }
+  getProducts();
+});
+
+counterButtonPlus.addEventListener('click', () => {
+  if (activePage < pages) {
+    activePage++;
+    getProducts();
+  }
+});
+
+
 getProducts();
+
+function getPage(page) {
+  activePage = page;
+  getProducts();
+}
+
+
+
+
 
 searchInput.addEventListener("keyup", function () {
   search = this.value.trim().toLowerCase();
+  activePage = 1;
   getProducts();
 });
 

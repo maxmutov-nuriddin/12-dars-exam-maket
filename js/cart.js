@@ -1,35 +1,42 @@
 let cartRow = document.querySelector(".carts__box");
+let allpriceElement = document.getElementById('allprice');
+
 
 function getCartCard({ id, images, name, price, description, quantity }) {
   return `
-
-  <div class="cart-card">
-  <div class="cart-card-img">
-    <img src="${images[0]}" alt="" />
-  </div>
-  <div class="cart-card-content">
-    <div class="cart__title-boxs">
-      <h3>${name}</h3>
-      <p>${price} $</p>
-      <p>${description}</p>
+    <div class="cart-card">
+      <div class="cart-card-content">
+      <div class="cart-card-img">
+      <img src="${images[0]}" alt="" />
     </div>
-    <div class="cart__btn-box">
-      <button onClick="decreaseQuantity(${id})">-</button>
-      <span>${quantity}</span>
-      <button onClick="increaseQuantity(${id})">+</button>
+    <div>
+      <div class="cart__title-boxs">
+        <h3>${name}</h3>
+        <p>${price} $</p>
+        <p>${description}</p>
+      </div>
     </div>
-  </div>
-</div>
+      </div>
+      <div class="cart__btn-box">
+        <button onClick="decreaseQuantity(${id})">-</button>
+        <span>${quantity}</span>
+        <button onClick="increaseQuantity(${id})">+</button>
+      </div>
+    </div>
   `;
 }
 
 function getCartProducts() {
   cartRow.innerHTML = "";
+  let allprice = 0;
+
   cart.map((pr) => {
     cartRow.innerHTML += getCartCard(pr);
+    allprice += pr.price * pr.quantity;
   });
-}
 
+  allpriceElement.textContent = `${allprice} ₽`;
+}
 
 getCartProducts();
 
@@ -51,7 +58,7 @@ function decreaseQuantity(id) {
     let isDelete = confirm("Do you want to delete this product ?");
     if (isDelete) {
       cart = cart.filter((pr) => pr.id !== id);
-      getCartTotal();
+      getCartProducts();
     }
   } else {
     cart = cart.map((pr) => {

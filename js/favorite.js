@@ -2,20 +2,21 @@ let cartRow = document.querySelector(".like__card");
 
 function getCartCard({ id, images, name, price, description, quantity }) {
   return `
-
   <div class="cart-card">
-  <div class="cart-card-img">
-    <img src="${images[0]}" alt="" />
-  </div>
   <div class="cart-card-content">
-    <div class="cart__title-boxs">
-      <h3>${name}</h3>
-      <p>${price} $</p>
-      <p>${description}</p>
-    </div>
-    <div class="cart__btn-box">
-      <button onClick="decreaseQuantity(${id})">Delete</button>
-    </div>
+  <div class="cart-card-img">
+  <img src="${images[0]}" alt="" />
+</div>
+<div>
+  <div class="cart__title-boxs">
+    <h3>${name}</h3>
+    <p>${price} $</p>
+    <p>${description}</p>
+  </div>
+</div>
+  </div>
+  <div class="cart__btn-box">
+    <button onClick="decreaseQuantity(${id})">Delete</button>
   </div>
 </div>
   `;

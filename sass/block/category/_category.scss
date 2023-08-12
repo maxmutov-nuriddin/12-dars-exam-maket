@@ -28,6 +28,29 @@
   margin: 0 0 25px;
 }
 
+.pagination__box {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  display: flex;
+
+  align-items: center;
+  text-align: center;
+}
+
+.page-item {
+  border: none;
+  background-color: transparent;
+  padding: 10px;
+  margin-right: 20px;
+  align-items: center;
+  text-align: center;
+
+}
+
 .category__filter-group {
   margin-top: 20px;
   display: flex;
@@ -188,7 +211,7 @@
   margin-left: 100px;
 }
 
-.active-cart{
+.active-cart {
   background-color: red !important;
   color: #FFF;
 }

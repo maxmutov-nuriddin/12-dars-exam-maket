@@ -71,6 +71,10 @@ function getProductCard(product) {
   const productCard = document.createElement("div");
   productCard.className = "promotion__box";
 
+  const productCardLink = document.createElement("a");
+  productCardLink.className = "";
+  productCardLink.href = `basket.html?category=${product.id}`
+
   const productCardBody = document.createElement("div");
   productCardBody.className = "product-card-body";
 
@@ -88,6 +92,7 @@ function getProductCard(product) {
     addToCartS(product.id)
   });
   
+  productCardLink.appendChild(productCardBody)
   productCardBody.appendChild(productLikeImg);
   productCardBody.appendChild(productImg);
 
@@ -136,7 +141,7 @@ function getProductCard(product) {
   productCardFooter.prepend(productTitle);
   productCardFooter.prepend(productCarS);
 
-  productCard.append(productCardBody, productCardFooter);
+  productCard.append(productCardLink, productCardFooter);
 
   return productCard;
 
@@ -186,7 +191,6 @@ function getProducts() {
 
 }
 
-getProducts();
 
 getProducts();
 

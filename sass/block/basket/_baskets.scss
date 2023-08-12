@@ -52,19 +52,24 @@
 }
 
 .basked__images {
+  gap: 20px;
   display: flex;
   flex-direction: row;
 }
 
 .basked__image-small {
+  gap: 20px;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 100px;
 }
 
 .basked__content {
+  height: 450px;
   display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
+  gap: 90px;
+  margin-bottom: 220px;
 }
 
 .basked__info {
@@ -103,14 +108,19 @@
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
+  text-align: end;
 }
 
 .basked__button {
+  margin-top: 50px;
   text-align: center;
 }
 
 .basked__button-link {
-  color: var(--main-on-primary, #FFF);
+  border: none;
+  background-color: transparent;
+  color: #9bee57;
+  color: var(--main-on-primary, #9bee57);
   text-align: center;
   font-family: Rubik;
   font-size: 24px;
@@ -118,13 +128,13 @@
   font-weight: 400;
   line-height: 150%;
   border-radius: 4px;
-  background: var(--main-primary, #F63);
   padding: 16px 70px;
+  border: 1px solid #9bee57;
 }
 
 .basked__button-link:active {
-  color: #F63;
   background-color: #FFF;
+  background: var(--main-primary, #F63);
   border: 1px solid var(--main-primary, );
 }
 
@@ -134,6 +144,7 @@
 
 .basked__image-large {
   width: 100%;
+  height: 100%;
 }
 
 .basked__box {
@@ -186,34 +197,63 @@
   line-height: 150%;
 }
 
-@media only screen and (max-width: 932px) {
+@media only screen and (max-width: 1150px) {
+  .basked__content {
+    flex-direction: column;
+    margin-bottom: 500px;
+  }
+
   .basked__info {
     width: 100%;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 932px) {
+  .basked__content {
+    margin-bottom: 300px;
+  }
+}
+
+@media only screen and (max-width: 585px) {
+  .basked__content {
+    margin-bottom: 0px;
+  }
+
+  .promotion__title {
+    font-size: 33px;
+  }
+
+  .basked__list {
+    flex-wrap: nowrap;
+    overflow-y: auto;
+  }
+
+}
+
+@media only screen and (max-width: 530px) {
   .basked__images {
     flex-direction: column;
   }
 
-  .basked__images-small {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  .basked__image-small {
+    width: 100%;
+    max-width: 80px;
+    flex-direction: row;
+
   }
+
 }
 
-@media only screen and (max-width: 432px) {
-  .basked__brand-name {
-    margin-left: 62px;
-  }
+// @media only screen and (max-width: 432px) {
+//   .basked__brand-name {
+//     margin-left: 62px;
+//   }
 
-  .basked__brand-names {
-    margin-left: 72px;
-  }
+//   .basked__brand-names {
+//     margin-left: 72px;
+//   }
 
-  .basked__brand-nams {
-    margin-left: 165px;
-  }
-}
+//   .basked__brand-nams {
+//     margin-left: 165px;
+//   }
+// }

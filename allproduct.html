@@ -11,7 +11,7 @@
 <body>
   <header class="header">
     <div class="drobdown_none drobdown">
-      <ul class="drobdown__list"> 
+      <ul class="drobdown__list">
       </ul>
     </div>
     <nav class="header__nav">
@@ -28,9 +28,13 @@
       <a class="header__favorites-link" href="./like.html">избраное <span class="count__likes">0</span></a>
       <a class="header__product-link" href="./allproduct.html">продукт</a>
       <a class="header__cart-link" href="./cart.html">корзина <span class="count__cards">0</span></a>
-      <a class="header__profile-link" href="#">Алексей</a>
-      <a class="header__profile-img" href="#"><img src="./imgs/png/header-avatar.png" alt="" avatar></a>
-      <button class="header__profile-dropdown-btn"><img src="./imgs/svg/chevron-down.svg" alt="chevron-down"></button>
+      <div class="boxses">
+        <div>
+          <img class="header__profile-images" id="preview" src="#" alt="Preview">
+          <button class="header__profile-link">Вход</button>
+        </div>
+        <a class="header__profile-dropdown-btns header__profile-dropdown-btn" href="#">Выйти</a>
+      </div>
     </nav>
   </header>
   <main>
@@ -42,6 +46,23 @@
           </h2>
         </div>
         <div class="promotion__product">
+        </div>
+        <div class="pagination__box">
+          <button class="page-item" id="counterButtonMinus"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M15.3536 5.64645C15.5488 5.84171 15.5488 6.15829 15.3536 6.35355L9.70711 12L15.3536 17.6464C15.5488 17.8417 15.5488 18.1583 15.3536 18.3536C15.1583 18.5488 14.8417 18.5488 14.6464 18.3536L8.64645 12.3536C8.45118 12.1583 8.45118 11.8417 8.64645 11.6464L14.6464 5.64645C14.8417 5.45118 15.1583 5.45118 15.3536 5.64645Z"
+                fill="#414141" />
+            </svg>
+          </button>
+          <div class="pagination">
+          </div>
+          <button class="page-item" id="counterButtonPlus"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M8.64645 5.64645C8.84171 5.45118 9.15829 5.45118 9.35355 5.64645L15.3536 11.6464C15.5488 11.8417 15.5488 12.1583 15.3536 12.3536L9.35355 18.3536C9.15829 18.5488 8.84171 18.5488 8.64645 18.3536C8.45118 18.1583 8.45118 17.8417 8.64645 17.6464L14.2929 12L8.64645 6.35355C8.45118 6.15829 8.45118 5.84171 8.64645 5.64645Z"
+                fill="#414141" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
@@ -147,9 +168,30 @@
       <a class="footer__profile-link" href="#">Алексей</a>
     </div>
   </footer>
-
+  <div class="modal">
+    <div class="modal-box">
+      <div class="modal-content">
+        <button class="modal-close">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M18.3536 5.64645C18.5488 5.84171 18.5488 6.15829 18.3536 6.35355L6.35355 18.3536C6.15829 18.5488 5.84171 18.5488 5.64645 18.3536C5.45118 18.1583 5.45118 17.8417 5.64645 17.6464L17.6464 5.64645C17.8417 5.45118 18.1583 5.45118 18.3536 5.64645Z"
+              fill="#414141" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M5.64645 5.64645C5.84171 5.45118 6.15829 5.45118 6.35355 5.64645L18.3536 17.6464C18.5488 17.8417 18.5488 18.1583 18.3536 18.3536C18.1583 18.5488 17.8417 18.5488 17.6464 18.3536L5.64645 6.35355C5.45118 6.15829 5.45118 5.84171 5.64645 5.64645Z"
+              fill="#414141" />
+          </svg>
+        </button>
+        <h3>Вход</h3>
+        <form action="" class="login-form">
+          <input class="login-input" type="text" placeholder="имя" />
+          <input type="file" id="myFile" name="filename" placeholder="фото">
+          <button class="login-btn" id="submitBtn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
   <script src="./js/products-data.js"></script>
-  <script src="./js/main.js"></script> 
+  <script src="./js/main.js"></script>
   <script src="./js/category.js"></script>
 </body>
 

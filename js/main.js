@@ -1,9 +1,16 @@
-const drobdown = document.querySelector('.drobdown_none')
-const btn = document.querySelector('.header__catalog-link')
-const drobdownBox = document.querySelector('.drobdown__list')
-const cartTotal = document.querySelector('.count__cards')
-const likeTotal = document.querySelector('.count__likes')
-
+const drobdown = document.querySelector('.drobdown_none');
+const btn = document.querySelector('.header__catalog-link');
+const drobdownBox = document.querySelector('.drobdown__list');
+const cartTotal = document.querySelector('.count__cards');
+const likeTotal = document.querySelector('.count__likes');
+const modalS = document.querySelector(".header__profile-link");
+const closeBtn = document.querySelector(".modal-close");
+const modalContent = document.querySelector(".modal-content");
+const modal = document.querySelector(".modal");
+const loginBtn = document.querySelector(".login-btn");
+const InputName = document.querySelector('.header__profile-link')
+const dataName = document.querySelector('.login-input')
+const logout = document.querySelector('.header__profile-dropdown-btn')
 
 
 
@@ -64,3 +71,99 @@ function getLikeTotal() {
 }
 
 getLikeTotal();
+
+
+document.getElementById('submitBtn').addEventListener('click', function () {
+  var fileInput = document.getElementById('myFile');
+  var file = fileInput.files[0];
+
+  var reader = new FileReader();
+  reader.onload = function (event) {
+    var base64Image = event.target.result;
+    localStorage.setItem('image', base64Image);
+
+    var previewImg = document.getElementById('preview');
+    previewImg.src = base64Image;
+  };
+  reader.readAsDataURL(file);
+});
+
+window.addEventListener('load', function () {
+  var savedImage = localStorage.getItem('image');
+  var previewImg = document.getElementById('preview');
+  if (savedImage) {
+    previewImg.src = savedImage;
+  } else {
+    previewImg.src = '../imgs/png/user.png';
+  }
+});
+
+
+
+modalS.addEventListener("click", () => {
+  modal.classList.add("modal-show");
+  modalContent.classList.add("modal-content-show");
+});
+
+closeBtn.addEventListener("click", () => closeModal());
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+
+function closeModal() {
+  modal.classList.remove("modal-show");
+  modalContent.classList.remove("modal-content-show");
+}
+
+
+let name = localStorage.getItem("name");
+if (name) {
+  InputName.innerHTML = name;
+}
+
+localStorage.setItem("log", 'header__profile-dropdown-btns');
+
+function logOutS() {
+  let logS = localStorage.getItem("log");
+  logout.classList.remove(logS);
+}
+
+
+
+loginBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  let setName = dataName.value.trim();
+  if (setName === "") {
+    setName = "User";
+  }
+  localStorage.setItem("name", setName);
+  InputName.innerHTML = setName;
+  dataName.value = "";
+  closeModal()
+});
+
+logOutS()
+
+
+
+function logOut() {
+  localStorage.removeItem("name");
+  localStorage.removeItem("image")
+}
+
+function logS() {
+  let logS = localStorage.getItem("log");
+  logout.classList.add(logS);
+}
+
+logout.addEventListener("click", () => {
+  const confirmed = confirm("Вы уверены, что хотите выйти?");
+  if (confirmed) {
+    logOut();
+    location.reload();
+  }
+  logS();
+});

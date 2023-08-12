@@ -11,6 +11,10 @@ function getCatalogsCard(product) {
   const productCard = document.createElement("div");
   productCard.className = "promotion__box";
 
+  const productCardLink = document.createElement("a");
+  productCardLink.className = "";
+  productCardLink.href =`basket.html?category=${product.id}`
+
   const productCardBody = document.createElement("div");
   productCardBody.className = "product-card-body";
 
@@ -19,6 +23,17 @@ function getCatalogsCard(product) {
   productImg.alt = product.name;
   productImg.style = 'width: 100%'
 
+  const productLikeImg = document.createElement("img");
+  productLikeImg.src = './imgs/svg/like.svg';
+  productLikeImg.className = 'promotion__like'
+
+  productLikeImg.addEventListener("click", (e) => {
+    e.preventDefault();
+    addToCartS(product.id)
+  });
+  
+  productCardLink.appendChild(productCardBody)
+  productCardBody.appendChild(productLikeImg);
   productCardBody.appendChild(productImg);
 
   const productCardFooter = document.createElement("div");
@@ -28,10 +43,9 @@ function getCatalogsCard(product) {
   productCarS.className = 'promotion__prices'
 
   const productTitle = document.createElement("a");
-  productTitle.href = '../catalogs.html'
+  productTitle.href = `catalogs.html?category=${product.category}`
   productTitle.className = 'promotion__titles'
   const productTitleText = document.createTextNode(product.name);
-
 
   productTitle.appendChild(productTitleText);
 
@@ -53,18 +67,21 @@ function getCatalogsCard(product) {
 
 
   const productBtn = document.createElement("button");
-  // productBtn.href = '../basket.html'
   productBtn.className = 'promotion__btn'
   productBtn.innerHTML = "В корзину";
-  productBtn.addEventListener("click", () => addToCart(product.id));
-
+  
+  productBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    productBtn.classList.add("product__active")
+    addToCart(product.id)
+  });
 
   productCardFooter.prepend(productBtn);
   productCardFooter.prepend(productRatings);
   productCardFooter.prepend(productTitle);
   productCardFooter.prepend(productCarS);
 
-  productCard.append(productCardBody, productCardFooter);
+  productCard.append(productCardLink, productCardFooter);
 
   return productCard;
 }
@@ -122,3 +139,23 @@ searchInput.addEventListener("keyup", function () {
 });
 
 
+function addToCartS(id) {
+  let product = products.find((pr) => pr.id === id);
+
+  let check = like.find((pr) => pr.id === id);
+
+  if (check) {
+    like = like.map((pr) => {
+      if (pr.id === id) {
+        pr.quantity++;
+      }
+      return pr;
+    });
+  } else {
+    product.quantity = 1;
+    like.push(product);
+  }
+  localStorage.setItem("like", JSON.stringify(like));
+  getProducts();
+  getLikeTotal();
+}
